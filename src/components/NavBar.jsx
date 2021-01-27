@@ -1,6 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import CartWidgetComponent from './CartWidget.jsx';
 
-const NavbarComponent = () => {
+const NavbarComponent = (props) => {
+     console.log(props)
      return (
           <>
                <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,8 +11,8 @@ const NavbarComponent = () => {
                          <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse col-sm-3" id="navbarSupportedContent">
-                         <ul className="navbar-nav mr-auto">
+                    <div className="navbar-collapse col-sm-3" id="navbarSupportedContent">
+                         <ul className="navbar-nav mr-auto d-flex align-items-center">
                               <li className="nav-item">
                                    <a className="nav-link" href="#">Tickets</a>
                               </li>
@@ -19,6 +21,9 @@ const NavbarComponent = () => {
                               </li>
                               <li className="nav-item">
                                    <a className="nav-link" href="#">Pagina Oficial</a>
+                              </li>
+                              <li className="nav-item">
+                              <CartWidgetComponent/>
                               </li>
                          </ul>
                     </div>
