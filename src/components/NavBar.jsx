@@ -2,7 +2,6 @@ import React from 'react';
 import CartWidgetComponent from './CartWidget.jsx';
 
 const NavbarComponent = (props) => {
-     console.log(props)
      return (
           <>
                <nav className="navbar navbar-expand-lg navbar-light bg-light">
