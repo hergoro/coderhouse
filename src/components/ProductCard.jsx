@@ -9,13 +9,14 @@ const ProductCardComponent = (props) => {
 
     return(
         <>
-            <div className="card col-sm-3">
-                <img src="../images/prod-13.jpg" className="card-img-top" alt="..."/>
+            <div>
+                <img src={props.info.imagen} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">Remera</h5>
-                    <p className="card-text">Descripcion de la remera.</p>
+                    <h5 className="card-title">Tipo: {props.info.tipo}</h5>
+                    <h5 className="card-title">Color: {props.info.color}</h5>
+                    <p className="card-text">Detalle: "{props.info.detalles}"</p>
+                    <ItemCountComponent onAdd={onAdd} initial={1} stock={props.info.stock}></ItemCountComponent>
                 </div>
-                <ItemCountComponent onAdd={onAdd} initial={props.initial} stock={props.stock}></ItemCountComponent>
             </div>
         </>
     )
