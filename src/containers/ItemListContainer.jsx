@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import ProductList from "../mocks/ProductList";
-import ItemList from "../components/ItemList"
+import api from "../mocks/ProductList";
+import ProductList from "../components/ProductList"
 
 const ItemListContainer = (props) => {
     const [productos, setProductos] = useState([])
 
     React.useEffect(() => {
         const promesa = new Promise((done, error) => {
-            setTimeout(() => done(ProductList), 2000);
+            setTimeout(() => done(api), 500);
         });
 
         promesa.then((resultado) => setProductos(resultado));
@@ -21,7 +21,7 @@ const ItemListContainer = (props) => {
             <p className="lead fw-normal">Bienvenido a la tienda oficial de Melian</p>
         </div>
     </div>
-    <div className="col-sm-12"><ItemList productos={productos} /></div>
+    <div><ProductList productos={productos} /></div>
     </>
     )
 }

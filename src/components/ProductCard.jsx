@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemCountComponent from './ItemCount';
+import { Link, useParams } from 'react-router-dom';
 
 const ProductCardComponent = (props) => {
 
@@ -7,19 +8,25 @@ const ProductCardComponent = (props) => {
         console.log(`Se agregaron ${total} productos al carrito`);
     }
 
-    return(
+    return (
         <>
-            <div>
-                <img src={props.info.imagen} className="card-img-top" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Tipo: {props.info.tipo}</h5>
-                    <h5 className="card-title">Color: {props.info.color}</h5>
-                    <p className="card-text">Detalle: "{props.info.detalles}"</p>
-                    <ItemCountComponent onAdd={onAdd} initial={1} stock={props.info.stock}></ItemCountComponent>
+            <div className="card-container"><Link to={`/detalle/${props.info.id}`} ><img className="imagen" src={props.info.imagen}/></Link>
+                <div className="">
+                    <div className="">
+                        <h5 className="card-tittle">{props.info.detalles}</h5>
+                        <small className="card-tipo">{props.info.tipo}</small>
+                        <small className="card-tipo">Colores: {props.info.color}</small>
+                    </div>
+                    <div className="row">
+                        <h5 className="card-precio">$ {props.info.precio}</h5>
+                    </div>
+                    <div className="button-agregar">
+                        <ItemCountComponent onAdd={onAdd} initial={1} stock={props.info.stock}></ItemCountComponent>
+                    </div>
                 </div>
             </div>
         </>
     )
 }
 
-export default ProductCardComponent
+export default ProductCardComponent;
